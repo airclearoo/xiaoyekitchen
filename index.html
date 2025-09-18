@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小叶厨房</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>小叶厨房</h1>
+            <p>马一鸣想吃啥，速速下单发给叶哥</p>
+        </header>
+
+        <div class="menu-container">
+            <div class="menu-section">
+                <h2>菜单</h2>
+                <div class="category">
+                    <h3>荤菜</h3>
+                    <div class="dishes" id="main-dishes">
+                        <!-- 荤菜菜品将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>素菜</h3>
+                    <div class="dishes" id="side-dishes">
+                        <!-- 素菜将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>汤品</h3>
+                    <div class="dishes" id="soups">
+                        <!-- 汤品将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+                <div class="category">
+                    <h3>饮料</h3>
+                    <div class="dishes" id="drinks">
+                        <!-- 饮料将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-section">
+                <h2>已选菜品</h2>
+                <div id="selected-dishes">
+                    <p class="empty-selection">还没有选择任何菜品哦~</p>
+                </div>
+                <div class="order-actions">
+                    <button id="clear-btn">清空选择</button>
+                    <button id="save-btn">保存点菜单</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-dish-section">
+            <h2>添加自定义菜品</h2>
+            <div class="custom-dish-form">
+                <input type="text" id="custom-dish-name" placeholder="菜品名称">
+                <select id="custom-dish-category">
+                    <option value="main">荤菜</option>
+                    <option value="side">素菜</option>
+                    <option value="soup">汤品</option>
+                    <option value="drink">饮料</option>
+                </select>
+                <button id="add-custom-dish">添加</button>
+            </div>
+        </div>
+
+        <div class="load-order-section">
+            <h2>导入点菜单</h2>
+            <input type="file" id="load-order-file" accept=".json">
+            <button id="load-order-btn">导入</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>点菜单已生成</h2>
+            <p>保存图片发给叶珏屹</p>
+            <div class="order-preview" id="order-preview">
+                <!-- 点菜单预览将在这里显示 -->
+            </div>
+            <div class="download-options">
+                <button id="download-img-btn">下载图片</button>
+                <button id="download-btn">下载JSON</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 隐藏的canvas用于生成图片 -->
+    <canvas id="order-canvas" style="display: none;"></canvas>
+
+    <footer>
+        <p>小叶厨房 &copy; 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
